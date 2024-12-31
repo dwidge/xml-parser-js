@@ -1,0 +1,46 @@
+{
+  "name": "@dwidge/xml-parser",
+  "version": "0.0.1",
+  "description": "A lightweight XML parser for JavaScript.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dwidge/xml-parser-js.git"
+  },
+  "license": "BSL-1.0",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/cjs/index.js",
+      "import": "./dist/esm/index.js",
+      "types": "./dist/types/index.d.ts"
+    },
+    "./*": {
+      "require": "./dist/cjs/lib/*.js",
+      "import": "./dist/esm/lib/*.js",
+      "types": "./dist/types/lib/*.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "prepare": "rimraf dist && ncp assets/ dist/ && tsc -b . tsconfig.cjs.json",
+    "test": "node --enable-source-maps --test --test-name-pattern",
+    "start": "echo 'Not implemented'"
+  },
+  "peerDependencies": {},
+  "devDependencies": {
+    "@types/node": "^22.5.4",
+    "dotenv-cli": "^7.4.2",
+    "expect": "^29.7.0",
+    "ncp": "^2.0.0",
+    "rimraf": "^5.0.5",
+    "typescript": "^5.6.2"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
